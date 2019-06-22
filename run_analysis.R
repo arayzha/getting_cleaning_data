@@ -67,7 +67,7 @@ head(tdy_dta)
 
 ############# Export Data in Step 5
 
-write.table(tdy_dta,'tdy_data.txt',col.names = F,row.names = F)
+write.table(tdy_dta,'tdy_data.txt',row.names = F)
 
 
 
