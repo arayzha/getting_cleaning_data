@@ -52,8 +52,17 @@ head(dta)
 ############# 4. Appropriately labels the data set with descriptive variable names.
 
 colnames(dta)[1:(ncol(dta)-2)] = feature$V2[selected_feature]
-colnames(dta)                  = gsub('mean\\(\\)','avg',colnames(dta))
-colnames(dta)                  = gsub('std\\(\\)','stdev',colnames(dta))
+colnames(dta)                  = gsub('mean\\(\\)','Avg',colnames(dta))
+colnames(dta)                  = gsub('std\\(\\)','StDev',colnames(dta))
+colnames(dta)                  = gsub("^t", "Time",colnames(dta))
+colnames(dta)                  = gsub("^f", "Frequency", colnames(dta))
+colnames(dta)                  = gsub("Gyro", "Gyroscope", colnames(dta))
+colnames(dta)                  = gsub("BodyBody", "Body",colnames(dta))
+colnames(dta)                  = gsub("Acc", "Accelerometer",colnames(dta))
+colnames(dta)                  = gsub("Mag", "Magnitude",colnames(dta))
+colnames(dta)                  = gsub("t[bB]ody", "TimeBody",colnames(dta))
+colnames(dta)                  = gsub("gravity", "Gravity",colnames(dta))
+colnames(dta)                  = gsub("angle", "Angle",colnames(dta))
 head(dta)
 
 
@@ -68,7 +77,3 @@ head(tdy_dta)
 ############# Export Data in Step 5
 
 write.table(tdy_dta,'tdy_data.txt',row.names = F)
-
-
-
-
